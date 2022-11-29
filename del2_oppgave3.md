@@ -15,3 +15,4 @@ Branch protection og status sjekker - Beskriv hva sensor må gjøre for å konfi
   * Velg ```Require status checks to pass before merging```
   * I søkefeltet skriv inn teksten build som skal la deg velge "GitHub Actions".
   * Trykk på knappen "Save Changes" nederst på siden. 
+  * 
