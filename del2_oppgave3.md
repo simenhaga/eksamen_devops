@@ -14,5 +14,4 @@ Branch protection og status sjekker - Beskriv hva sensor må gjøre for å konfi
 * **Kode kan merges til main bare når feature branchen som pull requesten er basert på, er verifisert av GitHub Actions.**
   * Velg ```Require status checks to pass before merging```
   * I søkefeltet skriv inn teksten build som skal la deg velge "GitHub Actions".
-  * Trykk på knappen "Save Changes" nederst på siden. 
-  * 
+  * Trykk på knappen "Save Changes" nederst på siden.
