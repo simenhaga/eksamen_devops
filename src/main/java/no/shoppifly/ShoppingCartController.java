@@ -39,9 +39,7 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
      */
     @PostMapping(path = "/cart/checkout")
     public String checkout(@RequestBody Cart cart) {
-        // remove the gauge meterRegistry from aws cloudwatch
-
-
+        meterRegistry.counter("checkout").increment();
         return cartService.checkout(cart);
     }
 
@@ -53,8 +51,6 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
      */
     @PostMapping(path = "/cart")
     public Cart updateCart(@RequestBody Cart cart) {
-        meterRegistry.counter("cartCount").increment();
-        meterRegistry.counter("cartSum").increment();
         return cartService.update(cart);
     }
 
@@ -65,17 +61,17 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
      */
     @GetMapping(path = "/carts")
     public List<String> getAllCarts() {
-        meterRegistry.counter("cartCount").increment();
         return cartService.getAllsCarts();
     }
+
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
 
-        Gauge.builder("cartCount", theShop,
+        Gauge.builder("cart_count", theShop,
                 b -> b.values().size()).register(meterRegistry);
 
-        Gauge.builder("cartSum", theShop,
+        Gauge.builder("cart_sum", theShop,
                         b -> b.values()
                                 .stream()
                                 .map(NaiveCartImpl::total)
