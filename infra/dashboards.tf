@@ -14,7 +14,7 @@ resource "aws_cloudwatch_dashboard" "main" {
         "metrics": [
           [
             "${var.candidate_id}",
-            "cartCount.value"
+            "cart_count.value"
           ]
         ],
         "period": 300,
@@ -33,7 +33,7 @@ resource "aws_cloudwatch_dashboard" "main" {
         "metrics": [
           [
             "${var.candidate_id}",
-            "cartSum.value"
+            "cart_sum.value"
           ]
         ],
         "period": 300,
