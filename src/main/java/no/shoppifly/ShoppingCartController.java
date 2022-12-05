@@ -1,31 +1,19 @@
 package no.shoppifly;
 
-import io.micrometer.core.instrument.Gauge;
-import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.ApplicationListener;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController()
-public class ShoppingCartController implements ApplicationListener<ApplicationReadyEvent> {
-
-    private final CartService cartService;
-    private MeterRegistry meterRegistry;
-    private Map<String, NaiveCartImpl> theShop = new HashMap();
-
+public class ShoppingCartController {
 
     @Autowired
-    public ShoppingCartController(CartService cartService, MeterRegistry meterRegistry) {
-        this.cartService = cartService;
-        this.meterRegistry = meterRegistry;
-    }
+    private final CartService cartService;
 
+    public ShoppingCartController(CartService cartService) {
+        this.cartService = cartService;
+    }
 
     @GetMapping(path = "/cart/{id}")
     public Cart getCart(@PathVariable String id) {
@@ -39,7 +27,6 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
      */
     @PostMapping(path = "/cart/checkout")
     public String checkout(@RequestBody Cart cart) {
-        meterRegistry.counter("checkout").increment();
         return cartService.checkout(cart);
     }
 
@@ -63,21 +50,4 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
     public List<String> getAllCarts() {
         return cartService.getAllsCarts();
     }
-
-
-    @Override
-    public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
-
-        Gauge.builder("cart_count", theShop,
-                b -> b.values().size()).register(meterRegistry);
-
-        Gauge.builder("cart_sum", theShop,
-                        b -> b.values()
-                                .stream()
-                                .map(NaiveCartImpl::total)
-                                .mapToDouble(Float::doubleValue)
-                                .sum())
-                .register(meterRegistry);
-    }
-
 }
