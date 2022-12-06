@@ -3,10 +3,10 @@ defaults:
   run:
     working-directory: infra
 on:
-  pull_request: Terraform Plan
+  pull_request: plan
   push:
     branches:
-      - main: Terraform Apply
+      - main: apply
 
 jobs:
   terraform:
