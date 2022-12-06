@@ -6,9 +6,9 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "analytics-1011"
+    bucket = "pgr301-2021-terraform-state"
     key    = "1011/exam.state"
-    region = "eu-west-1"
+    region = "eu-north-1"
   }
 
 }
