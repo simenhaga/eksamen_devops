@@ -79,7 +79,7 @@ resource "aws_cloudwatch_dashboard" "main" {
         "region": "eu-west-1",
         "title": "Checkout latency"
       }
-    },
+    }
   ]
 }
 DASHBOARD
