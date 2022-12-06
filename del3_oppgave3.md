@@ -1,4 +1,4 @@
-# Oppgave 3
+# Del 3, Oppgave 3
 
 Beskriv deretter med egne ord hva sensor må gjøre for å få sin fork til å laste opp container image til sitt eget ECR repo.
   * **Opprett nøkkler på AWS**

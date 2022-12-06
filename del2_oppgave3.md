@@ -1,4 +1,4 @@
-# Oppgave 3
+# Del 2, Oppgave 3
 Branch protection og status sjekker - Beskriv hva sensor må gjøre for å konfigurere sin fork på en slik måte at
 
 * **Ingen kan pushe kode direkte på main branch**
