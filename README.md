@@ -1,6 +1,6 @@
-![CI Pipeline](https://github.com/simenhaga/eksamen_devops/actions/workflows/ci.yml/badge.svg)(https://github.com/simenhaga/eksamen_devops/actions/workflows/ci.yml)
-![Docker build](https://github.com/simenhaga/eksamen_devops/actions/workflows/docker.yml/badge.svg)(https://github.com/simenhaga/eksamen_devops/actions/workflows/docker.yml)
-![Terraform CloudWatch](https://github.com/simenhaga/eksamen_devops/actions/workflows/cloudwatch_dashboard.yml/badge.svg)(https://github.com/simenhaga/eksamen_devops/actions/workflows/cloudwatch_dashboard.yml)
+[![CI Pipeline](https://github.com/simenhaga/eksamen_devops/actions/workflows/ci.yml/badge.svg)](https://github.com/simenhaga/eksamen_devops/actions/workflows/ci.yml)
+[![Docker build](https://github.com/simenhaga/eksamen_devops/actions/workflows/docker.yml/badge.svg)](https://github.com/simenhaga/eksamen_devops/actions/workflows/docker.yml)
+[![Terraform CloudWatch](https://github.com/simenhaga/eksamen_devops/actions/workflows/cloudwatch_dashboard.yml/badge.svg)](https://github.com/simenhaga/eksamen_devops/actions/workflows/cloudwatch_dashboard.yml)
 
 # DevOps med gode intensjoner
 
